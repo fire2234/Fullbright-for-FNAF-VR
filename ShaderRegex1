@@ -1,0 +1,20 @@
+[ShaderRegexKillShading3DY]
+shader_model = ps_5_0
+[ShaderRegexKillShading3DY.Pattern]
+(?P<match>
+    sample_l_indexable\(texture3d\)\(float,float,float,float\) (?P<reg>r[0-9]+\.[xyzw]{4}), [rv][0-9]+\.[xyzw]{4}, (t16|t17)\.[xyzw]{4}, s[0-9]+, l\(0\.000000\)\n
+)
+[ShaderRegexKillShading3DY.Pattern.Replace]
+${match}\n
+mov o0.xyz, ${reg}\n
+ret\n
+[ShaderRegexKillShadingRGB3D]
+shader_model = ps_5_0
+[ShaderRegexKillShadingRGB3D.Pattern]
+(?P<match>
+    sample_l_indexable\(texture3d\)\(float,float,float,float\) (?P<reg>r[0-9]+\.[xyzw]{4}), [rv][0-9]+\.[xyzw]{4}, (t16|t17)\.[xyzw]{4}, s[0-9]+, l\(0\.000000\)\n
+)
+[ShaderRegexKillShadingRGB3D.Pattern.Replace]
+${match}\n
+mov o0.xyz, ${reg}x\n
+ret\n

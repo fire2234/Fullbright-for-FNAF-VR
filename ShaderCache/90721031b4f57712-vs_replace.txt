@@ -1,0 +1,157 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Jul 18 00:47:02 2019
+Buffer<float4> t0 : register(t0);
+
+cbuffer cb3 : register(b3)
+{
+  float4 cb3[63];
+}
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[5];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[166];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[8];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  float3 v1 : ATTRIBUTE1,
+  float4 v2 : ATTRIBUTE2,
+  uint4 v3 : ATTRIBUTE3,
+  uint4 v4 : ATTRIBUTE14,
+  float4 v5 : ATTRIBUTE4,
+  float4 v6 : ATTRIBUTE15,
+  float2 v7 : ATTRIBUTE5,
+  float4 v8 : ATTRIBUTE13,
+  uint v9 : SV_InstanceID0,
+  out float4 o0 : TEXCOORD10,
+  out float4 o1 : TEXCOORD11,
+  out float2 o2 : TEXCOORD0,
+  out uint o3 : PACKED_EYE_INDEX0,
+  out float4 o4 : VS_To_DS_Position0,
+  out float3 o5 : TEXCOORD7,
+  out float o6 : SV_ClipDistance1)
+{
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_input_sgv v9.x, instance_id
+  float4 r0,r1,r2,r3,r4,r5,r6,r7,r8;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  if (cb0[7].y != 0) {
+    r0.x = cb1[165].w;
+  } else {
+    r0.x = (int)v9.x & 1;
+  }
+  if (r0.x == 0) {
+    r0.yzw = cb1[62].xyz;
+  } else {
+    r0.yzw = cb3[62].xyz;
+  }
+  r1.xyzw = (int4)v3.xyzw * int4(3,3,3,3);
+  r2.xyzw = t0.Load(r1.x).xyzw;
+  r3.xyzw = mad((int4)v3.xxyy, int4(3,3,3,3), int4(1,2,1,2));
+  r4.xyzw = t0.Load(r3.x).xyzw;
+  r5.xyzw = t0.Load(r3.y).xyzw;
+  r6.xyzw = t0.Load(r1.y).xyzw;
+  r7.xyzw = t0.Load(r3.z).xyzw;
+  r3.xyzw = t0.Load(r3.w).xyzw;
+  r6.xyzw = v5.yyyy * r6.xyzw;
+  r7.xyzw = v5.yyyy * r7.xyzw;
+  r3.xyzw = v5.yyyy * r3.xyzw;
+  r2.xyzw = v5.xxxx * r2.xyzw + r6.xyzw;
+  r4.xyzw = v5.xxxx * r4.xyzw + r7.xyzw;
+  r3.xyzw = v5.xxxx * r5.xyzw + r3.xyzw;
+  r5.xyzw = t0.Load(r1.z).xyzw;
+  r6.xyzw = mad((int4)v3.zzww, int4(3,3,3,3), int4(1,2,1,2));
+  r7.xyzw = t0.Load(r6.x).xyzw;
+  r8.xyzw = t0.Load(r6.y).xyzw;
+  r2.xyzw = v5.zzzz * r5.xyzw + r2.xyzw;
+  r4.xyzw = v5.zzzz * r7.xyzw + r4.xyzw;
+  r3.xyzw = v5.zzzz * r8.xyzw + r3.xyzw;
+  r1.xyzw = t0.Load(r1.w).xyzw;
+  r5.xyzw = t0.Load(r6.z).xyzw;
+  r6.xyzw = t0.Load(r6.w).xyzw;
+  r1.xyzw = v5.wwww * r1.xyzw + r2.xyzw;
+  r2.xyzw = v5.wwww * r5.xyzw + r4.xyzw;
+  r3.xyzw = v5.wwww * r6.xyzw + r3.xyzw;
+  r4.xyzw = (int4)v4.xyzw * int4(3,3,3,3);
+  r5.xyzw = t0.Load(r4.x).xyzw;
+  r6.xyzw = mad((int4)v4.xxyy, int4(3,3,3,3), int4(1,2,1,2));
+  r7.xyzw = t0.Load(r6.x).xyzw;
+  r8.xyzw = t0.Load(r6.y).xyzw;
+  r1.xyzw = v6.xxxx * r5.xyzw + r1.xyzw;
+  r2.xyzw = v6.xxxx * r7.xyzw + r2.xyzw;
+  r3.xyzw = v6.xxxx * r8.xyzw + r3.xyzw;
+  r5.xyzw = t0.Load(r4.y).xyzw;
+  r7.xyzw = t0.Load(r6.z).xyzw;
+  r6.xyzw = t0.Load(r6.w).xyzw;
+  r1.xyzw = v6.yyyy * r5.xyzw + r1.xyzw;
+  r2.xyzw = v6.yyyy * r7.xyzw + r2.xyzw;
+  r3.xyzw = v6.yyyy * r6.xyzw + r3.xyzw;
+  r5.xyzw = t0.Load(r4.z).xyzw;
+  r6.xyzw = mad((int4)v4.zzww, int4(3,3,3,3), int4(1,2,1,2));
+  r7.xyzw = t0.Load(r6.x).xyzw;
+  r8.xyzw = t0.Load(r6.y).xyzw;
+  r1.xyzw = v6.zzzz * r5.xyzw + r1.xyzw;
+  r2.xyzw = v6.zzzz * r7.xyzw + r2.xyzw;
+  r3.xyzw = v6.zzzz * r8.xyzw + r3.xyzw;
+  r4.xyzw = t0.Load(r4.w).xyzw;
+  r5.xyzw = t0.Load(r6.z).xyzw;
+  r6.xyzw = t0.Load(r6.w).xyzw;
+  r1.xyzw = v6.wwww * r4.xyzw + r1.xyzw;
+  r2.xyzw = v6.wwww * r5.xyzw + r2.xyzw;
+  r3.xyzw = v6.wwww * r6.xyzw + r3.xyzw;
+  r4.x = dot(r1.xyz, v1.xyz);
+  r4.y = dot(r2.xyz, v1.xyz);
+  r4.z = dot(r3.xyz, v1.xyz);
+  r4.w = dot(r1.xyz, v2.xyz);
+  r5.x = dot(r2.xyz, v2.xyz);
+  r5.y = dot(r3.xyz, v2.xyz);
+  r6.xyz = v0.xyz;
+  r6.w = 1;
+  r1.x = dot(r1.xyzw, r6.xyzw);
+  r1.y = dot(r2.xyzw, r6.xyzw);
+  r1.z = dot(r3.xyzw, r6.xyzw);
+  r2.xyz = cb2[1].xyz * r1.yyy;
+  r1.xyw = cb2[0].xyz * r1.xxx + r2.xyz;
+  r1.xyz = cb2[2].xyz * r1.zzz + r1.xyw;
+  r0.yzw = cb2[3].xyz + r0.yzw;
+  r0.yzw = r1.xyz + r0.yzw;
+  r1.xyz = cb2[4].xxx * cb2[0].xyz;
+  r2.xyz = cb2[4].yyy * cb2[1].xyz;
+  r3.xyz = cb2[4].zzz * cb2[2].xyz;
+  r6.xyz = r4.yyy * r2.xyz;
+  r6.xyz = r4.xxx * r1.xyz + r6.xyz;
+  o0.xyz = r4.zzz * r3.xyz + r6.xyz;
+  r2.xyz = r5.xxx * r2.xyz;
+  r1.xyz = r4.www * r1.xyz + r2.xyz;
+  o1.xyz = r5.yyy * r3.xyz + r1.xyz;
+  o1.w = cb2[4].w * v2.w;
+  r1.x = cb0[0].x ? -0 : 0;
+  o3.x = (int)r0.x | (int)r1.x;
+  o0.w = 0;
+  o4.xyz = r0.yzw;
+  o4.w = 1;
+  o5.xyz = r0.yzw;
+  o2.xy = v7.xy;
+  o6.x = 0;
+  return;
+}

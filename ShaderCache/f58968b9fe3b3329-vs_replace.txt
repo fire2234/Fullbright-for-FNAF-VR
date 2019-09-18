@@ -1,0 +1,120 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Jul 18 00:46:22 2019
+Buffer<float4> t0 : register(t0);
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[4];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[63];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[13];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  float3 v1 : ATTRIBUTE1,
+  float4 v2 : ATTRIBUTE2,
+  uint4 v3 : ATTRIBUTE3,
+  uint4 v4 : ATTRIBUTE14,
+  float4 v5 : ATTRIBUTE4,
+  float4 v6 : ATTRIBUTE15,
+  float2 v7 : ATTRIBUTE5,
+  float4 v8 : ATTRIBUTE13,
+  out float o0 : TEXCOORD6,
+  out float4 o1 : SV_POSITION0)
+{
+  float4 r0,r1,r2,r3,r4,r5,r6,r7;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  r0.xyzw = (int4)v3.xyzw * int4(3,3,3,3);
+  r1.xyzw = t0.Load(r0.y).xyzw;
+  r1.xyzw = v5.yyyy * r1.xyzw;
+  r2.xyzw = t0.Load(r0.x).xyzw;
+  r1.xyzw = v5.xxxx * r2.xyzw + r1.xyzw;
+  r2.xyzw = t0.Load(r0.z).xyzw;
+  r0.xyzw = t0.Load(r0.w).xyzw;
+  r1.xyzw = v5.zzzz * r2.xyzw + r1.xyzw;
+  r0.xyzw = v5.wwww * r0.xyzw + r1.xyzw;
+  r1.xyzw = (int4)v4.xyzw * int4(3,3,3,3);
+  r2.xyzw = t0.Load(r1.x).xyzw;
+  r0.xyzw = v6.xxxx * r2.xyzw + r0.xyzw;
+  r2.xyzw = t0.Load(r1.y).xyzw;
+  r0.xyzw = v6.yyyy * r2.xyzw + r0.xyzw;
+  r2.xyzw = t0.Load(r1.z).xyzw;
+  r1.xyzw = t0.Load(r1.w).xyzw;
+  r0.xyzw = v6.zzzz * r2.xyzw + r0.xyzw;
+  r0.xyzw = v6.wwww * r1.xyzw + r0.xyzw;
+  r1.xyz = v0.xyz;
+  r1.w = 1;
+  r0.x = dot(r0.xyzw, r1.xyzw);
+  r2.xyzw = mad((int4)v3.xxyy, int4(3,3,3,3), int4(1,2,1,2));
+  r3.xyzw = t0.Load(r2.z).xyzw;
+  r3.xyzw = v5.yyyy * r3.xyzw;
+  r4.xyzw = t0.Load(r2.x).xyzw;
+  r3.xyzw = v5.xxxx * r4.xyzw + r3.xyzw;
+  r4.xyzw = mad((int4)v3.zzww, int4(3,3,3,3), int4(1,2,1,2));
+  r5.xyzw = t0.Load(r4.x).xyzw;
+  r3.xyzw = v5.zzzz * r5.xyzw + r3.xyzw;
+  r5.xyzw = t0.Load(r4.z).xyzw;
+  r3.xyzw = v5.wwww * r5.xyzw + r3.xyzw;
+  r5.xyzw = mad((int4)v4.xxyy, int4(3,3,3,3), int4(1,2,1,2));
+  r6.xyzw = t0.Load(r5.x).xyzw;
+  r3.xyzw = v6.xxxx * r6.xyzw + r3.xyzw;
+  r6.xyzw = t0.Load(r5.z).xyzw;
+  r3.xyzw = v6.yyyy * r6.xyzw + r3.xyzw;
+  r6.xyzw = mad((int4)v4.zzww, int4(3,3,3,3), int4(1,2,1,2));
+  r7.xyzw = t0.Load(r6.x).xyzw;
+  r3.xyzw = v6.zzzz * r7.xyzw + r3.xyzw;
+  r7.xyzw = t0.Load(r6.z).xyzw;
+  r3.xyzw = v6.wwww * r7.xyzw + r3.xyzw;
+  r0.y = dot(r3.xyzw, r1.xyzw);
+  r0.yzw = cb2[1].xyz * r0.yyy;
+  r0.xyz = cb2[0].xyz * r0.xxx + r0.yzw;
+  r3.xyzw = t0.Load(r2.w).xyzw;
+  r2.xyzw = t0.Load(r2.y).xyzw;
+  r3.xyzw = v5.yyyy * r3.xyzw;
+  r2.xyzw = v5.xxxx * r2.xyzw + r3.xyzw;
+  r3.xyzw = t0.Load(r4.y).xyzw;
+  r4.xyzw = t0.Load(r4.w).xyzw;
+  r2.xyzw = v5.zzzz * r3.xyzw + r2.xyzw;
+  r2.xyzw = v5.wwww * r4.xyzw + r2.xyzw;
+  r3.xyzw = t0.Load(r5.y).xyzw;
+  r4.xyzw = t0.Load(r5.w).xyzw;
+  r2.xyzw = v6.xxxx * r3.xyzw + r2.xyzw;
+  r2.xyzw = v6.yyyy * r4.xyzw + r2.xyzw;
+  r3.xyzw = t0.Load(r6.y).xyzw;
+  r4.xyzw = t0.Load(r6.w).xyzw;
+  r2.xyzw = v6.zzzz * r3.xyzw + r2.xyzw;
+  r2.xyzw = v6.wwww * r4.xyzw + r2.xyzw;
+  r0.w = dot(r2.xyzw, r1.xyzw);
+  r0.xyz = cb2[2].xyz * r0.www + r0.xyz;
+  r1.xyz = cb2[3].xyz + cb1[62].xyz;
+  r0.xyz = r1.xyz + r0.xyz;
+  r1.xyzw = cb0[9].xyzw * r0.yyyy;
+  r1.xyzw = r0.xxxx * cb0[8].xyzw + r1.xyzw;
+  r0.xyzw = r0.zzzz * cb0[10].xyzw + r1.xyzw;
+  r0.xyzw = cb0[11].xyzw + r0.xyzw;
+  r1.x = cmp(r0.z < 0);
+  r1.y = cmp(0 != cb0[12].x);
+  r1.x = r1.x ? r1.y : 0;
+  r0.zw = r1.xx ? float2(9.99999997e-007,1) : r0.zw;
+  o0.x = r0.z;
+  o1.xyzw = r0.xyzw;
+  return;
+}

@@ -1,0 +1,176 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Jul 18 00:44:59 2019
+cbuffer cb3 : register(b3)
+{
+  float4 cb3[164];
+}
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[4];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[164];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[7];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  uint v1 : SV_VertexID0,
+  uint v2 : SV_InstanceID0,
+  out float4 o0 : TEXCOORD6,
+  out float4 o1 : TEXCOORD7,
+  out uint o2 : PACKED_EYE_INDEX0,
+  out float4 o3 : SV_POSITION0,
+  out float o4 : SV_ClipDistance1)
+{
+  const float4 icb[] = { { -1.000000, 0, 0, 1.000000},
+                              { 1.000000, 0, 0, 1.000000} };
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_input_sgv v2.x, instance_id
+  float4 r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  r0.x = (int)v2.x & 1;
+  if (r0.x == 0) {
+    r1.x = cb1[0].x;
+    r1.y = cb1[1].x;
+    r1.z = cb1[2].x;
+    r1.w = cb1[3].x;
+    r2.x = cb1[0].y;
+    r2.y = cb1[1].y;
+    r2.z = cb1[2].y;
+    r2.w = cb1[3].y;
+    r3.x = cb1[0].z;
+    r3.y = cb1[1].z;
+    r3.z = cb1[2].z;
+    r3.w = cb1[3].z;
+    r4.x = cb1[0].w;
+    r4.y = cb1[1].w;
+    r4.z = cb1[2].w;
+    r4.w = cb1[3].w;
+    r5.x = cb1[83].x;
+    r5.y = cb1[84].x;
+    r5.z = cb1[85].x;
+    r5.w = cb1[86].x;
+    r6.x = cb1[83].y;
+    r6.y = cb1[84].y;
+    r6.z = cb1[85].y;
+    r6.w = cb1[86].y;
+    r7.x = cb1[83].z;
+    r7.y = cb1[84].z;
+    r7.z = cb1[85].z;
+    r7.w = cb1[86].z;
+    r8.x = cb1[83].w;
+    r8.y = cb1[84].w;
+    r8.z = cb1[85].w;
+    r8.w = cb1[86].w;
+    r0.yzw = cb1[105].xyz;
+    r9.x = cb1[163].y;
+    r9.yzw = cb1[62].xyz;
+  } else {
+    r1.x = cb3[0].x;
+    r1.y = cb3[1].x;
+    r1.z = cb3[2].x;
+    r1.w = cb3[3].x;
+    r2.x = cb3[0].y;
+    r2.y = cb3[1].y;
+    r2.z = cb3[2].y;
+    r2.w = cb3[3].y;
+    r3.x = cb3[0].z;
+    r3.y = cb3[1].z;
+    r3.z = cb3[2].z;
+    r3.w = cb3[3].z;
+    r4.x = cb3[0].w;
+    r4.y = cb3[1].w;
+    r4.z = cb3[2].w;
+    r4.w = cb3[3].w;
+    r5.x = cb3[83].x;
+    r5.y = cb3[84].x;
+    r5.z = cb3[85].x;
+    r5.w = cb3[86].x;
+    r6.x = cb3[83].y;
+    r6.y = cb3[84].y;
+    r6.z = cb3[85].y;
+    r6.w = cb3[86].y;
+    r7.x = cb3[83].z;
+    r7.y = cb3[84].z;
+    r7.z = cb3[85].z;
+    r7.w = cb3[86].z;
+    r8.x = cb3[83].w;
+    r8.y = cb3[84].w;
+    r8.z = cb3[85].w;
+    r8.w = cb3[86].w;
+    r0.yzw = cb3[105].xyz;
+    r9.x = cb3[163].y;
+    r9.yzw = cb3[62].xyz;
+  }
+  r10.xyz = cb2[1].xyz * v0.yyy;
+  r10.xyz = cb2[0].xyz * v0.xxx + r10.xyz;
+  r10.xyz = cb2[2].xyz * v0.zzz + r10.xyz;
+  r9.yzw = cb2[3].xyz + r9.yzw;
+  r10.xyz = r10.xyz + r9.yzw;
+  r11.xyw = cb0[6].xyz + r0.yzw;
+  r12.x = cb0[3].x;
+  r12.y = cb0[4].x;
+  r12.z = cb0[5].x;
+  r12.w = r11.x;
+  r12.x = dot(v0.xyzw, r12.xyzw);
+  r13.x = cb0[3].y;
+  r13.y = cb0[4].y;
+  r13.z = cb0[5].y;
+  r13.w = r11.y;
+  r12.y = dot(v0.xyzw, r13.xyzw);
+  r11.x = cb0[3].z;
+  r11.y = cb0[4].z;
+  r11.z = cb0[5].z;
+  r12.z = dot(v0.xyzw, r11.xyzw);
+  r12.w = 1;
+  o1.x = dot(r12.xyzw, r5.xyzw);
+  o1.y = dot(r12.xyzw, r6.xyzw);
+  o1.z = dot(r12.xyzw, r7.xyzw);
+  o1.w = dot(r12.xyzw, r8.xyzw);
+  r10.w = 1;
+  r1.x = dot(r10.xyzw, r1.xyzw);
+  r1.y = dot(r10.xyzw, r2.xyzw);
+  r1.z = dot(r10.xyzw, r3.xyzw);
+  r1.w = dot(r10.xyzw, r4.xyzw);
+  if (cb0[0].x != 0) {
+    r2.x = icb[r0.x+0].x;
+    r2.y = 1;
+    o4.x = dot(r1.xw, r2.xy);
+    r0.y = 0.5 * r9.x;
+    r0.z = icb[r0.x+0].x * r1.w;
+    r0.w = -r9.x * 0.5 + 1;
+    r0.z = r0.z * r0.w;
+    r2.x = r1.x * r0.y + r0.z;
+  } else {
+    r2.x = r1.x;
+    o4.x = 0;
+  }
+  r0.y = cmp(1 < asint(cb1[125].x));
+  r0.z = 0.00100000005 * r1.w;
+  r0.y = r0.y ? r0.z : 0;
+  r2.y = r1.z + r0.y;
+  r0.y = cb0[0].x ? 1 : 0;
+  o2.x = mad((int)r0.y, 0x80000000, (int)r0.x);
+  o0.xyzw = r1.xyzw;
+  r2.zw = r1.yw;
+  o3.xyzw = r2.xzyw;
+  return;
+}

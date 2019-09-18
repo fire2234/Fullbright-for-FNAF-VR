@@ -1,0 +1,208 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Jul 18 00:46:48 2019
+Buffer<float4> t1 : register(t1);
+
+Buffer<float4> t0 : register(t0);
+
+cbuffer cb4 : register(b4)
+{
+  float4 cb4[1];
+}
+
+cbuffer cb3 : register(b3)
+{
+  float4 cb3[164];
+}
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[5];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[164];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[8];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  uint v1 : SV_VertexID0,
+  uint v2 : SV_InstanceID0,
+  out float4 o0 : TEXCOORD6,
+  out float4 o1 : TEXCOORD8,
+  out float4 o2 : TEXCOORD10,
+  out float4 o3 : TEXCOORD11,
+  out float4 o4 : TEXCOORD0,
+  out uint o5 : PACKED_EYE_INDEX0,
+  out float4 o6 : VS_To_DS_Position0,
+  out float o7 : SV_ClipDistance1)
+{
+  const float4 icb[] = { { -1.000000, 0, 0, 1.000000},
+                              { 1.000000, 0, 0, 1.000000} };
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_input_sgv v1.x, vertex_id
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_input_sgv v2.x, instance_id
+  float4 r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  r0.x = (int)v2.x & 1;
+  if (r0.x == 0) {
+    r1.x = cb1[0].x;
+    r1.y = cb1[1].x;
+    r1.z = cb1[2].x;
+    r1.w = cb1[3].x;
+    r2.x = cb1[0].y;
+    r2.y = cb1[1].y;
+    r2.z = cb1[2].y;
+    r2.w = cb1[3].y;
+    r3.x = cb1[0].z;
+    r3.y = cb1[1].z;
+    r3.z = cb1[2].z;
+    r3.w = cb1[3].z;
+    r4.x = cb1[0].w;
+    r4.y = cb1[1].w;
+    r4.z = cb1[2].w;
+    r4.w = cb1[3].w;
+    r5.x = cb1[83].x;
+    r5.y = cb1[84].x;
+    r5.z = cb1[85].x;
+    r5.w = cb1[86].x;
+    r6.x = cb1[83].y;
+    r6.y = cb1[84].y;
+    r6.z = cb1[85].y;
+    r6.w = cb1[86].y;
+    r7.x = cb1[83].z;
+    r7.y = cb1[84].z;
+    r7.z = cb1[85].z;
+    r7.w = cb1[86].z;
+    r8.x = cb1[83].w;
+    r8.y = cb1[84].w;
+    r8.z = cb1[85].w;
+    r8.w = cb1[86].w;
+    r0.yzw = cb1[105].xyz;
+    r9.x = cb1[163].y;
+    r9.yzw = cb1[62].xyz;
+  } else {
+    r1.x = cb3[0].x;
+    r1.y = cb3[1].x;
+    r1.z = cb3[2].x;
+    r1.w = cb3[3].x;
+    r2.x = cb3[0].y;
+    r2.y = cb3[1].y;
+    r2.z = cb3[2].y;
+    r2.w = cb3[3].y;
+    r3.x = cb3[0].z;
+    r3.y = cb3[1].z;
+    r3.z = cb3[2].z;
+    r3.w = cb3[3].z;
+    r4.x = cb3[0].w;
+    r4.y = cb3[1].w;
+    r4.z = cb3[2].w;
+    r4.w = cb3[3].w;
+    r5.x = cb3[83].x;
+    r5.y = cb3[84].x;
+    r5.z = cb3[85].x;
+    r5.w = cb3[86].x;
+    r6.x = cb3[83].y;
+    r6.y = cb3[84].y;
+    r6.z = cb3[85].y;
+    r6.w = cb3[86].y;
+    r7.x = cb3[83].z;
+    r7.y = cb3[84].z;
+    r7.z = cb3[85].z;
+    r7.w = cb3[86].z;
+    r8.x = cb3[83].w;
+    r8.y = cb3[84].w;
+    r8.z = cb3[85].w;
+    r8.w = cb3[86].w;
+    r0.yzw = cb3[105].xyz;
+    r9.x = cb3[163].y;
+    r9.yzw = cb3[62].xyz;
+  }
+  r10.x = (int)v1.x + asint(cb0[7].y);
+  r10.y = (uint)r10.x << 1;
+  r10.yzw = t1.Load(r10.y).xyz;
+  bitmask.x = ((~(-1 << 31)) << 1) & 0xffffffff;  r11.x = (((uint)r10.x << 1) & bitmask.x) | ((uint)1 & ~bitmask.x);
+  r11.xyzw = t1.Load(r11.x).xyzw;
+  r12.xyz = r11.yzx * r10.yzw;
+  r10.yzw = r11.xyz * r10.zwy + -r12.xyz;
+  r10.yzw = r10.yzw * r11.www;
+  r12.xyz = r10.yzw * r11.yzx;
+  r10.yzw = r10.wyz * r11.zxy + -r12.xyz;
+  r10.yzw = r10.yzw * r11.www;
+  r12.xyz = cb2[4].xxx * cb2[0].xyz;
+  r13.xyz = cb2[4].yyy * cb2[1].xyz;
+  r14.xyz = cb2[4].zzz * cb2[2].xyz;
+  r15.xyz = r13.xyz * r10.zzz;
+  r15.xyz = r10.yyy * r12.xyz + r15.xyz;
+  o2.xyz = r10.www * r14.xyz + r15.xyz;
+  r10.yzw = r13.xyz * r11.yyy;
+  r10.yzw = r11.xxx * r12.xyz + r10.yzw;
+  o3.xyz = r11.zzz * r14.xyz + r10.yzw;
+  o3.w = cb2[4].w * r11.w;
+  r10.yzw = cb2[1].xyz * v0.yyy;
+  r10.yzw = cb2[0].xyz * v0.xxx + r10.yzw;
+  r10.yzw = cb2[2].xyz * v0.zzz + r10.yzw;
+  r9.yzw = cb2[3].xyz + r9.yzw;
+  r11.xyz = r10.yzw + r9.yzw;
+  r9.y = (int)r10.x * asint(cb4[0].y);
+  r9.yz = t0.Load(r9.y).xy;
+  r10.xyw = cb0[6].xyz + r0.yzw;
+  r12.x = cb0[3].x;
+  r12.y = cb0[4].x;
+  r12.z = cb0[5].x;
+  r12.w = r10.x;
+  r12.x = dot(v0.xyzw, r12.xyzw);
+  r13.x = cb0[3].y;
+  r13.y = cb0[4].y;
+  r13.z = cb0[5].y;
+  r13.w = r10.y;
+  r12.y = dot(v0.xyzw, r13.xyzw);
+  r10.x = cb0[3].z;
+  r10.y = cb0[4].z;
+  r10.z = cb0[5].z;
+  r12.z = dot(v0.xyzw, r10.xyzw);
+  r12.w = 1;
+  o1.x = dot(r12.xyzw, r5.xyzw);
+  o1.y = dot(r12.xyzw, r6.xyzw);
+  o1.z = dot(r12.xyzw, r7.xyzw);
+  o1.w = dot(r12.xyzw, r8.xyzw);
+  r11.w = 1;
+  o0.x = dot(r11.xyzw, r1.xyzw);
+  o0.y = dot(r11.xyzw, r2.xyzw);
+  o0.z = dot(r11.xyzw, r3.xyzw);
+  o0.w = dot(r11.xyzw, r4.xyzw);
+  if (cb0[0].x != 0) {
+    r1.x = icb[r0.x+0].x;
+    r1.y = 1;
+    o7.x = dot(r11.xw, r1.xy);
+    r0.y = 0.5 * r9.x;
+    r0.z = -r9.x * 0.5 + 1;
+    r0.z = icb[r0.x+0].x * r0.z;
+    r11.x = r11.x * r0.y + r0.z;
+  } else {
+    o7.x = 0;
+  }
+  r0.y = cb0[0].x ? 1 : 0;
+  o5.x = mad((int)r0.y, 0x80000000, (int)r0.x);
+  o2.w = 0;
+  o4.xy = r9.yz;
+  o4.zw = float2(0,0);
+  o6.xyzw = r11.xyzw;
+  return;
+}

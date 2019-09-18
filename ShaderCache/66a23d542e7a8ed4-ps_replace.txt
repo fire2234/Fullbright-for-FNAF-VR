@@ -1,0 +1,111 @@
+// ---- Created with 3Dmigoto v1.3.16 on Sun Sep 15 09:54:37 2019
+Texture2D<float4> t0 : register(t0);
+
+SamplerState s0_s : register(s0);
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[3];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[126];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[134];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : TEXCOORD6,
+  float4 v1 : TEXCOORD7,
+  float4 v2 : TEXCOORD0,
+  nointerpolation uint v3 : PACKED_EYE_INDEX0,
+  float4 v4 : SV_Position0,
+  uint v5 : SV_IsFrontFace0,
+  out float4 o0 : SV_Target0,
+  out uint oMask : SV_Coverage)
+{
+  float4 r0,r1,r2;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  r0.x = (int)v3.x & 1;
+  if (r0.x == 0) {
+    r0.xy = cb0[118].zw;
+    r0.z = cb0[125].x;
+    r1.xy = cb0[118].xy;
+  } else {
+    r0.xy = cb1[118].zw;
+    r0.z = cb1[125].x;
+    r1.xy = cb1[118].xy;
+  }
+  r0.w = t0.SampleBias(s0_s, v2.xy, cb0[133].x).w;
+  r1.zw = float2(-0.5,-0.5) + v2.yx;
+  r1.zw = r1.zw + r1.zw;
+  r2.x = min(abs(r1.z), abs(r1.w));
+  r2.y = max(abs(r1.z), abs(r1.w));
+  r2.y = 1 / r2.y;
+  r2.x = r2.x * r2.y;
+  r2.y = r2.x * r2.x;
+  r2.z = r2.y * 0.0208350997 + -0.0851330012;
+  r2.z = r2.y * r2.z + 0.180141002;
+  r2.z = r2.y * r2.z + -0.330299497;
+  r2.y = r2.y * r2.z + 0.999866009;
+  r2.z = r2.x * r2.y;
+  r2.w = cmp(abs(r1.w) < abs(r1.z));
+  r2.z = r2.z * -2 + 1.57079637;
+  r2.z = r2.w ? r2.z : 0;
+  r2.x = r2.x * r2.y + r2.z;
+  r2.y = cmp(r1.w < -r1.w);
+  r2.y = r2.y ? -3.141593 : 0;
+  r2.x = r2.x + r2.y;
+  r2.y = min(r1.z, r1.w);
+  r1.z = max(r1.z, r1.w);
+  r1.w = cmp(r2.y < -r2.y);
+  r1.z = cmp(r1.z >= -r1.z);
+  r1.z = r1.z ? r1.w : 0;
+  r1.z = r1.z ? -r2.x : r2.x;
+  r1.z = 0.159154952 * r1.z;
+  r1.z = frac(r1.z);
+  r1.z = cb2[2].x + r1.z;
+  r1.z = floor(r1.z);
+  r0.w = r0.w * r1.z + -0.333299994;
+  r1.z = cmp(r0.w < 0);
+  if (r1.z != 0) discard;
+  r0.z = cmp(1 < (int)r0.z);
+  r2.xyzw = cmp(float4(0.00666699978,0.166675001,0.333350003,0.500024974) < r0.wwww);
+  r0.w = r2.x ? 0.000000 : 0;
+  r0.w = r2.y ? 9 : r0.w;
+  r0.w = r2.z ? 13 : r0.w;
+  r1.w = (uint)r0.w;
+  r1.w = -0.5 + r1.w;
+  r1.w = cmp(r1.w < 0);
+  r1.w = r2.w ? 0 : r1.w;
+  r1.w = r0.z ? r1.w : 0;
+  if (r1.w != 0) discard;
+  r0.z = ~(int)r0.z;
+  r1.z = r0.z ? r1.z : 0;
+  if (r1.z != 0) discard;
+  r0.z = (int)r0.z | (int)r2.w;
+  oMask = r0.z ? 15 : r0.w;
+  r0.zw = v0.xy / v0.ww;
+  r0.zw = r0.zw + -r1.xy;
+  r1.xy = v1.xy / v1.ww;
+  r0.xy = r1.xy + -r0.xy;
+  r0.xy = r0.zw + -r0.xy;
+  o0.xy = r0.xy * float2(0.249500006,0.249500006) + float2(0.499992371,0.499992371);
+  o0.zw = float2(0,0);
+  return;
+}

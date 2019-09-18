@@ -1,0 +1,125 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Jul 18 00:44:59 2019
+Buffer<uint4> t1 : register(t1);
+
+Buffer<uint4> t0 : register(t0);
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[2];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main)
+{
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_uav_typed_buffer (uint,uint,uint,uint) u0
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_uav_typed_buffer (uint,uint,uint,uint) u1
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_uav_typed_buffer (uint,uint,uint,uint) u2
+  float4 r0,r1;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_thread_group 4, 4, 4
+  r0.xyz = cmp((uint3)vThreadID.xyz < asuint(cb0[1].xyz));
+  r0.x = r0.y ? r0.x : 0;
+  r0.x = r0.z ? r0.x : 0;
+  if (r0.x != 0) {
+    r0.x = mad((int)vThreadID.z, asint(cb0[1].y), (int)vThreadID.y);
+    r0.x = mad((int)r0.x, asint(cb0[1].x), (int)vThreadID.x);
+    r0.y = t0.Load(r0.x).x;
+    r0.z = 0;
+    r0.w = r0.y;
+    while (true) {
+      r1.x = cmp((int)r0.w != -1);
+      r1.y = cmp((uint)r0.z < asuint(cb0[0].x));
+      r1.x = r1.y ? r1.x : 0;
+      if (r1.x == 0) break;
+      r0.z = (int)r0.z + 1;
+      bitmask.x = ((~(-1 << 31)) << 1) & 0xffffffff;  r1.x = (((uint)r0.w << 1) & bitmask.x) | ((uint)1 & ~bitmask.x);
+      r0.w = t1.Load(r1.x).x;
+    }
+    // Needs manual fix for instruction:
+    imm_atomic_iadd r1.x, u2, l(0), r0.z
+    InterlockedAdd(dest, imm_value, orig_value);
+    r0.w = (uint)r0.x << 1;
+  // No code for instruction (needs manual fix):
+    store_uav_typed u0.xyzw, r0.wwww, r0.zzzz
+    bitmask.y = ((~(-1 << 31)) << 1) & 0xffffffff;  r1.y = (((uint)r0.x << 1) & bitmask.y) | ((uint)1 & ~bitmask.y);
+  // No code for instruction (needs manual fix):
+    store_uav_typed u0.xyzw, r1.yyyy, r1.xxxx
+    r0.w = (int)r0.z + (int)r1.x;
+    r1.x = r0.y;
+    r1.y = 0;
+    while (true) {
+      r1.z = cmp((int)r1.x != -1);
+      r1.w = cmp((uint)r1.y < (uint)r0.z);
+      r1.z = r1.w ? r1.z : 0;
+      if (r1.z == 0) break;
+      r1.z = (int)r0.w + (int)-r1.y;
+      r1.z = (int)r1.z + -1;
+      r1.w = (uint)r1.x << 1;
+      r1.w = t1.Load(r1.w).x;
+    // No code for instruction (needs manual fix):
+        store_uav_typed u1.xyzw, r1.zzzz, r1.wwww
+      r1.y = (int)r1.y + 1;
+      bitmask.z = ((~(-1 << 31)) << 1) & 0xffffffff;  r1.z = (((uint)r1.x << 1) & bitmask.z) | ((uint)1 & ~bitmask.z);
+      r1.x = t1.Load(r1.z).x;
+    }
+    r0.x = (int)r0.x + asint(cb0[0].w);
+    r0.y = t0.Load(r0.x).x;
+    r0.z = 0;
+    r0.w = r0.y;
+    while (true) {
+      r1.x = cmp((int)r0.w != -1);
+      r1.y = cmp((uint)r0.z < asuint(cb0[0].y));
+      r1.x = r1.y ? r1.x : 0;
+      if (r1.x == 0) break;
+      r0.z = (int)r0.z + 1;
+      bitmask.x = ((~(-1 << 31)) << 1) & 0xffffffff;  r1.x = (((uint)r0.w << 1) & bitmask.x) | ((uint)1 & ~bitmask.x);
+      r0.w = t1.Load(r1.x).x;
+    }
+    // Needs manual fix for instruction:
+    imm_atomic_iadd r1.x, u2, l(0), r0.z
+    InterlockedAdd(dest, imm_value, orig_value);
+    r0.w = (uint)r0.x << 1;
+  // No code for instruction (needs manual fix):
+    store_uav_typed u0.xyzw, r0.wwww, r0.zzzz
+    bitmask.x = ((~(-1 << 31)) << 1) & 0xffffffff;  r0.x = (((uint)r0.x << 1) & bitmask.x) | ((uint)1 & ~bitmask.x);
+  // No code for instruction (needs manual fix):
+    store_uav_typed u0.xyzw, r0.xxxx, r1.xxxx
+    r0.x = (int)r0.z + (int)r1.x;
+    r0.w = r0.y;
+    r1.x = 0;
+    while (true) {
+      r1.y = cmp((int)r0.w != -1);
+      r1.z = cmp((uint)r1.x < (uint)r0.z);
+      r1.y = r1.z ? r1.y : 0;
+      if (r1.y == 0) break;
+      r1.y = (int)r0.x + (int)-r1.x;
+      r1.y = (int)r1.y + -1;
+      r1.z = (uint)r0.w << 1;
+      r1.z = t1.Load(r1.z).x;
+    // No code for instruction (needs manual fix):
+        store_uav_typed u1.xyzw, r1.yyyy, r1.zzzz
+      r1.x = (int)r1.x + 1;
+      bitmask.y = ((~(-1 << 31)) << 1) & 0xffffffff;  r1.y = (((uint)r0.w << 1) & bitmask.y) | ((uint)1 & ~bitmask.y);
+      r0.w = t1.Load(r1.y).x;
+    }
+  }
+  return;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HLSL errors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\marco\Desktop\3Dmigoto Fullbright for FNAF VR\ShaderCache\5647d041ed1d5b0e-cs_replace.txt(20,10): error X3000: syntax error: unexpected token ')'
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
