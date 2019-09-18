@@ -916,6 +916,6 @@ add r0.yzw, r3.xxyz, r0.yyzw
 mad o0.xyz, r0.yzwy, r0.xxxx, r1.xyzx
 mov o0.w, l(0)
 
-add o0.xyz, r29.xyzw, r2.yzwy
+add o0.xyz, r29.xyzw, r1.yzwy
 ret
 // Approximately 0 instruction slots used
