@@ -2,7 +2,7 @@
 This Mod provides Fullbright using 3DMigoto
 
 
-ISTRUCTIONS: 
+INSTRUCTIONS: 
 
 Download everything here, put the contents in one folder, run 3Dmigoto.exe as admin.
 
