@@ -72,7 +72,7 @@ dcl_input_ps constant v4.x
 dcl_input_ps linear v5.xyzw
 dcl_input_ps_siv linear noperspective v6.xyzw, position
 dcl_output o0.xyzw
-dcl_temps 28
+dcl_temps 29
 and r0.x, v4.x, l(1)
 if_z r0.x
   mov r1.x, cb1[4].x
