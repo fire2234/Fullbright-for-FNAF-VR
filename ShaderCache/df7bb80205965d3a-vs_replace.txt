@@ -1,0 +1,91 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Oct 24 00:27:05 2019
+Texture2D<float4> t1 : register(t1);
+
+Buffer<float4> t0 : register(t0);
+
+SamplerState s0_s : register(s0);
+
+cbuffer cb3 : register(b3)
+{
+  float4 cb3[1];
+}
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[4];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[133];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[13];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  uint v1 : SV_VertexID0,
+  out float o0 : TEXCOORD6,
+  out float4 o1 : SV_POSITION0)
+{
+// Needs manual fix for instruction:
+// unknown dcl_: dcl_input_sgv v1.x, vertex_id
+  float4 r0,r1,r2;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  o0.x = 0;
+  r0.xyz = cb2[1].xyz * v0.yyy;
+  r0.xyz = cb2[0].xyz * v0.xxx + r0.xyz;
+  r0.xyz = cb2[2].xyz * v0.zzz + r0.xyz;
+  r1.xyz = cb2[3].xyz + cb1[62].xyz;
+  r0.xyz = r1.xyz + r0.xyz;
+  r1.xyzw = -cb1[62].yxyz + r0.yxyz;
+  r1.xyzw = float4(0.0009765625,0.00499999989,0.00499999989,0.00499999989) * r1.xyzw;
+  r1.xyzw = cb1[132].zzzz * float4(-0.075000003,-0.075000003,-0.075000003,-0.075000003) + r1.xyzw;
+  r1.xyzw = float4(0.5,0.5,0.5,0.5) + r1.xyzw;
+  r1.xyzw = frac(r1.xyzw);
+  r1.xyzw = r1.xyzw * float4(2,2,2,2) + float4(-1,-1,-1,-1);
+  r2.xyzw = -abs(r1.xyzw) * float4(2,2,2,2) + float4(3,3,3,3);
+  r1.xyzw = abs(r1.xyzw) * abs(r1.xyzw);
+  r1.yzw = r1.yzw * r2.yzw;
+  r0.w = dot(r1.yzw, r1.yzw);
+  r0.w = sqrt(r0.w);
+  r0.w = r1.x * r2.x + r0.w;
+  r0.w = 6.28318548 * r0.w;
+  sincos(r0.w, r1.x, r2.x);
+  r1.xy = float2(-10,0) * r1.xx;
+  r1.xy = r2.xx * float2(0,10) + r1.xy;
+  r1.xy = float2(0,-10) + r1.xy;
+  r0.w = (int)v1.x + asint(cb0[7].y);
+  r0.w = (int)r0.w * asint(cb3[0].y);
+  r1.zw = t0.Load(r0.w).xy;
+  r0.w = t1.SampleLevel(s0_s, r1.zw, -1).w;
+  r1.yz = r1.xy * r0.ww;
+  r1.x = 0;
+  r0.xyz = float3(0.25,0.25,0.25) * r1.xyz + r0.xyz;
+  r1.xyzw = cb0[9].xyzw * r0.yyyy;
+  r1.xyzw = r0.xxxx * cb0[8].xyzw + r1.xyzw;
+  r0.xyzw = r0.zzzz * cb0[10].xyzw + r1.xyzw;
+  r0.xyzw = cb0[11].xyzw + r0.xyzw;
+  r1.x = cmp(r0.z < 0);
+  r1.y = cmp(0 != cb0[12].x);
+  r1.x = r1.x ? r1.y : 0;
+  r0.zw = r1.xx ? float2(9.99999997e-007,1) : r0.zw;
+  o1.xyw = r0.xyw;
+  r0.x = r0.z * cb0[7].w + cb0[7].z;
+  o1.z = r0.x * r0.w;
+  return;
+}
