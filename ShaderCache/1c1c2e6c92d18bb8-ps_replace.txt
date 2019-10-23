@@ -1,0 +1,23 @@
+// ---- Created with 3Dmigoto v1.3.16 on Wed Oct 23 20:21:14 2019
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float2 v0 : TEXCOORD0,
+  float w0 : TEXCOORD6,
+  float4 v1 : TEXCOORD1,
+  float4 v2 : TEXCOORD2,
+  uint v3 : PACKED_EYE_INDEX0,
+  float3 v4 : TEXCOORD7,
+  float4 v5 : SV_Position0,
+  out float4 o0 : SV_Target0)
+{
+  o0.xyzw = float4(0,0,0,0);
+  return;
+}

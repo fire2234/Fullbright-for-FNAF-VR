@@ -1,0 +1,35 @@
+// ---- Created with 3Dmigoto v1.3.16 on Wed Oct 23 22:09:06 2019
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : TEXCOORD10,
+  float4 v1 : TEXCOORD11,
+  float4 v2 : TEXCOORD0,
+  float4 v3 : TEXCOORD4,
+  uint v4 : PACKED_EYE_INDEX0,
+  float4 v5 : TEXCOORD7,
+  float3 v6 : TEXCOORD9,
+  float4 v7 : VS_To_DS_Position0,
+  out float4 o0 : TEXCOORD10,
+  out float4 o1 : TEXCOORD11,
+  out float4 o2 : TEXCOORD0,
+  out float4 o3 : TEXCOORD4,
+  out uint o4 : PACKED_EYE_INDEX0,
+  out float4 o5 : TEXCOORD7,
+  out float3 o6 : TEXCOORD9,
+  out float p6 : PN_TessellationMultiplier0,
+  out float4 o7 : VS_To_DS_Position0,
+  out float4 o8 : PN_POSITION0,
+  out float4 o9 : PN_POSITION1,
+  out float4 o10 : PN_POSITION2,
+  out float3 o11 : PN_DisplacementScales0,
+  out float p11 : PN_WorldDisplacementMultiplier0)
+{
+}
