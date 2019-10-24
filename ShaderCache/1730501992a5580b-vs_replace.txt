@@ -1,0 +1,124 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Oct 24 15:26:27 2019
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[164];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[166];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[8];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  float3 v1 : ATTRIBUTE1,
+  float4 v2 : ATTRIBUTE2,
+  float4 v3 : ATTRIBUTE3,
+  float2 v4 : ATTRIBUTE4,
+  float4 v5 : ATTRIBUTE8,
+  float4 v6 : ATTRIBUTE9,
+  float4 v7 : ATTRIBUTE10,
+  int4 v8 : ATTRIBUTE11,
+  float2 v9 : ATTRIBUTE12,
+  float4 v10 : ATTRIBUTE14,
+  float4 v11 : ATTRIBUTE15,
+  uint v12 : SV_InstanceID0,
+  out float4 o0 : TEXCOORD0,
+  out uint o1 : PACKED_EYE_INDEX0,
+  out float4 o2 : SV_POSITION0,
+  out float o3 : SV_ClipDistance1)
+{
+  const float4 icb[] = { { -1.000000, 0, 0, 1.000000},
+                              { 1.000000, 0, 0, 1.000000} };
+  float4 r0,r1,r2,r3,r4,r5,r6;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  if (cb0[7].y != 0) {
+    r0.x = cb1[165].w;
+  } else {
+    r0.y = cb0[0].x ? 1 : 0;
+    r0.x = (int)r0.y & asint(cb0[7].x);
+  }
+  if (r0.x == 0) {
+    r1.x = cb1[0].x;
+    r1.y = cb1[1].x;
+    r1.z = cb1[2].x;
+    r1.w = cb1[3].x;
+    r2.x = cb1[0].y;
+    r2.y = cb1[1].y;
+    r2.z = cb1[2].y;
+    r2.w = cb1[3].y;
+    r3.x = cb1[0].z;
+    r3.y = cb1[1].z;
+    r3.z = cb1[2].z;
+    r3.w = cb1[3].z;
+    r4.x = cb1[0].w;
+    r4.y = cb1[1].w;
+    r4.z = cb1[2].w;
+    r4.w = cb1[3].w;
+    r0.yzw = cb1[62].xyz;
+    r5.x = cb1[163].y;
+  } else {
+    r1.x = cb2[0].x;
+    r1.y = cb2[1].x;
+    r1.z = cb2[2].x;
+    r1.w = cb2[3].x;
+    r2.x = cb2[0].y;
+    r2.y = cb2[1].y;
+    r2.z = cb2[2].y;
+    r2.w = cb2[3].y;
+    r3.x = cb2[0].z;
+    r3.y = cb2[1].z;
+    r3.z = cb2[2].z;
+    r3.w = cb2[3].z;
+    r4.x = cb2[0].w;
+    r4.y = cb2[1].w;
+    r4.z = cb2[2].w;
+    r4.w = cb2[3].w;
+    r0.yzw = cb2[62].xyz;
+    r5.x = cb2[163].y;
+  }
+  r6.x = dot(v0.xyzw, v5.xyzw);
+  r6.y = dot(v0.xyzw, v6.xyzw);
+  r6.z = dot(v0.xyzw, v7.xyzw);
+  r6.xyz = r6.xyz + r0.yzw;
+  r6.w = v0.w;
+  r1.x = dot(r6.xyzw, r1.xyzw);
+  r1.y = dot(r6.xyzw, r2.xyzw);
+  r1.z = dot(r6.xyzw, r3.xyzw);
+  r1.w = dot(r6.xyzw, r4.xyzw);
+  r0.y = asint(cb0[0].x) | asint(cb0[7].y);
+  if (r0.y != 0) {
+    r2.x = icb[r0.x+0].x;
+    r2.y = 1;
+    o3.x = dot(r1.xw, r2.xy);
+    r0.y = 0.5 * r5.x;
+    r0.z = icb[r0.x+0].x * r1.w;
+    r0.w = -r5.x * 0.5 + 1;
+    r0.z = r0.z * r0.w;
+    r1.x = r1.x * r0.y + r0.z;
+  } else {
+    o3.x = 0;
+  }
+  r0.y = cb0[0].x ? -0 : 0;
+  o1.x = (int)r0.x | (int)r0.y;
+  o0.xy = v4.xy;
+  o0.zw = float2(0,0);
+  o2.xyzw = r1.xyzw;
+  return;
+}

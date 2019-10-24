@@ -1,0 +1,232 @@
+// ---- Created with 3Dmigoto v1.3.16 on Thu Oct 24 15:26:28 2019
+TextureCube<float4> t0 : register(t0);
+
+SamplerState s0_s : register(s0);
+
+cbuffer cb4 : register(b4)
+{
+  float4 cb4[92];
+}
+
+cbuffer cb3 : register(b3)
+{
+  float4 cb3[164];
+}
+
+cbuffer cb2 : register(b2)
+{
+  float4 cb2[5];
+}
+
+cbuffer cb1 : register(b1)
+{
+  float4 cb1[178];
+}
+
+cbuffer cb0 : register(b0)
+{
+  float4 cb0[8];
+}
+
+
+
+
+// 3Dmigoto declarations
+#define cmp -
+Texture1D<float4> IniParams : register(t120);
+Texture2D<float4> StereoParams : register(t125);
+
+
+void main(
+  float4 v0 : ATTRIBUTE0,
+  float3 v1 : ATTRIBUTE1,
+  float4 v2 : ATTRIBUTE2,
+  float4 v3 : ATTRIBUTE3,
+  float2 v4 : ATTRIBUTE4,
+  float4 v5 : ATTRIBUTE8,
+  float4 v6 : ATTRIBUTE9,
+  float4 v7 : ATTRIBUTE10,
+  int4 v8 : ATTRIBUTE11,
+  float2 v9 : ATTRIBUTE12,
+  float4 v10 : ATTRIBUTE14,
+  float4 v11 : ATTRIBUTE15,
+  uint v12 : SV_InstanceID0,
+  out float4 o0 : TEXCOORD10,
+  out float4 o1 : TEXCOORD11,
+  out float4 o2 : TEXCOORD0,
+  out uint o3 : PACKED_EYE_INDEX0,
+  out float4 o4 : TEXCOORD7,
+  out float4 o5 : SV_POSITION0,
+  out float o6 : SV_ClipDistance1)
+{
+  const float4 icb[] = { { -1.000000, 0, 0, 1.000000},
+                              { 1.000000, 0, 0, 1.000000} };
+  float4 r0,r1,r2,r3,r4,r5,r6,r7;
+  uint4 bitmask, uiDest;
+  float4 fDest;
+
+  r0.x = cb0[0].x ? 1 : 0;
+  r0.y = (int)r0.x & asint(cb0[7].x);
+  if (r0.y == 0) {
+    r1.x = cb1[0].x;
+    r1.y = cb1[1].x;
+    r1.z = cb1[2].x;
+    r1.w = cb1[3].x;
+    r2.x = cb1[0].y;
+    r2.y = cb1[1].y;
+    r2.z = cb1[2].y;
+    r2.w = cb1[3].y;
+    r3.x = cb1[0].z;
+    r3.y = cb1[1].z;
+    r3.z = cb1[2].z;
+    r3.w = cb1[3].z;
+    r4.x = cb1[0].w;
+    r4.y = cb1[1].w;
+    r4.z = cb1[2].w;
+    r4.w = cb1[3].w;
+    r5.xyz = cb1[62].xyz;
+    r0.z = cb1[163].y;
+    r6.xyz = cb1[60].xyz;
+  } else {
+    r1.x = cb3[0].x;
+    r1.y = cb3[1].x;
+    r1.z = cb3[2].x;
+    r1.w = cb3[3].x;
+    r2.x = cb3[0].y;
+    r2.y = cb3[1].y;
+    r2.z = cb3[2].y;
+    r2.w = cb3[3].y;
+    r3.x = cb3[0].z;
+    r3.y = cb3[1].z;
+    r3.z = cb3[2].z;
+    r3.w = cb3[3].z;
+    r4.x = cb3[0].w;
+    r4.y = cb3[1].w;
+    r4.z = cb3[2].w;
+    r4.w = cb3[3].w;
+    r5.xyz = cb3[62].xyz;
+    r0.z = cb3[163].y;
+    r6.xyz = cb3[60].xyz;
+  }
+  r7.x = dot(v0.xyzw, v5.xyzw);
+  r7.y = dot(v0.xyzw, v6.xyzw);
+  r7.z = dot(v0.xyzw, v7.xyzw);
+  r5.xyz = r7.xyz + r5.xyz;
+  r5.w = v0.w;
+  r1.x = dot(r5.xyzw, r1.xyzw);
+  r1.y = dot(r5.xyzw, r2.xyzw);
+  r1.z = dot(r5.xyzw, r3.xyzw);
+  r1.w = dot(r5.xyzw, r4.xyzw);
+  if (cb0[0].x != 0) {
+    r2.x = icb[r0.y+0].x;
+    r2.y = 1;
+    o6.x = dot(r1.xw, r2.xy);
+    r0.w = 0.5 * r0.z;
+    r2.x = icb[r0.y+0].x * r1.w;
+    r0.z = -r0.z * 0.5 + 1;
+    r0.z = r2.x * r0.z;
+    r1.x = r1.x * r0.w + r0.z;
+  } else {
+    o6.x = 0;
+  }
+  r2.xyz = v2.yzx * v1.xyz;
+  r2.xyz = v2.xyz * v1.yzx + -r2.xyz;
+  r2.xyz = v2.www * r2.xyz;
+  r3.xyz = v2.yzx * r2.xyz;
+  r2.xyz = r2.zxy * v2.zxy + -r3.xyz;
+  r2.xyz = v2.www * r2.xyz;
+  r3.x = dot(r2.xyz, v5.xyz);
+  r3.y = dot(r2.xyz, v6.xyz);
+  r3.z = dot(r2.xyz, v7.xyz);
+  r2.x = dot(v2.xyz, v5.xyz);
+  r2.y = dot(v2.xyz, v6.xyz);
+  r2.z = dot(v2.xyz, v7.xyz);
+  r0.z = dot(r3.xyz, r3.xyz);
+  r0.z = rsqrt(r0.z);
+  o0.xyz = r3.xyz * r0.zzz;
+  r0.z = dot(r2.xyz, r2.xyz);
+  r0.z = rsqrt(r0.z);
+  o1.xyz = r2.xyz * r0.zzz;
+  o1.w = cb2[4].w * v2.w;
+  o3.x = mad((int)r0.x, 0x80000000, (int)r0.y);
+  r0.xyz = r5.xyz + -r6.xyz;
+  r0.w = dot(r0.xyz, r0.xyz);
+  r2.x = sqrt(r0.w);
+  r2.y = dot(r0.xyz, cb1[52].xyz);
+  r2.x = r2.x / r2.y;
+  r2.x = cb1[177].z * r2.x;
+  r2.x = max(0, r2.x);
+  r2.y = rsqrt(r0.w);
+  r0.w = r2.y * r0.w;
+  r3.xyz = r2.yyy * r0.xyz;
+  r2.x = max(cb4[85].w, r2.x);
+  r2.z = cmp(0 < r2.x);
+  r2.w = r2.x * r2.y;
+  r3.w = r2.w * r0.z + cb1[59].z;
+  r2.w = -r2.w * r0.z + r0.z;
+  r2.x = -r2.x * r2.y + 1;
+  r2.x = r2.x * r0.w;
+  r2.y = -cb4[87].y + r3.w;
+  r2.y = cb4[85].y * r2.y;
+  r2.y = max(-127, r2.y);
+  r2.y = exp2(-r2.y);
+  r2.y = cb4[87].x * r2.y;
+  r2.y = r2.z ? r2.y : cb4[85].x;
+  r2.x = r2.z ? r2.x : r0.w;
+  r2.z = r2.z ? r2.w : r0.z;
+  r2.z = cb4[85].y * r2.z;
+  r2.z = max(-127, r2.z);
+  r2.w = exp2(-r2.z);
+  r2.w = 1 + -r2.w;
+  r2.w = r2.w / r2.z;
+  r3.w = -r2.z * 0.240226507 + 0.693147182;
+  r2.z = cmp(0.00999999978 < abs(r2.z));
+  r2.z = r2.z ? r2.w : r3.w;
+  r2.y = r2.y * r2.z;
+  r2.z = r2.y * r2.x;
+  r4.xy = cmp(float2(0,0) < cb4[87].zw);
+  if (r4.x != 0) {
+    r2.w = saturate(r0.w * cb4[91].x + cb4[91].y);
+    r4.xz = float2(1,-1) * cb4[90].yx;
+    r5.x = dot(r0.xy, r4.xz);
+    r5.y = dot(r0.xy, cb4[90].xy);
+    r5.z = r0.z;
+    r0.xyz = t0.SampleLevel(s0_s, r5.xyz, 0).xyz;
+    r4.xzw = t0.SampleLevel(s0_s, r5.xyz, cb4[91].z).xyz;
+    r0.xyz = -r4.xzw + r0.xyz;
+    r0.xyz = r2.www * r0.xyz + r4.xzw;
+    r0.xyz = cb4[86].xyz * r0.xyz;
+  } else {
+    r0.xyz = cb4[86].xyz;
+  }
+  r2.w = cmp(cb4[88].w >= 0);
+  r3.w = cmp(cb4[87].z == 0.000000);
+  r2.w = r2.w ? r3.w : 0;
+  r3.x = saturate(dot(r3.xyz, cb4[88].xyz));
+  r3.x = log2(r3.x);
+  r3.x = cb4[89].w * r3.x;
+  r3.x = exp2(r3.x);
+  r3.xyz = cb4[89].xyz * r3.xxx;
+  r2.x = -cb4[88].w + r2.x;
+  r2.x = max(0, r2.x);
+  r2.x = r2.y * r2.x;
+  r2.x = exp2(-r2.x);
+  r2.x = min(1, r2.x);
+  r2.x = 1 + -r2.x;
+  r3.xyz = r3.xyz * r2.xxx;
+  r3.xyz = r2.www ? r3.xyz : 0;
+  r2.x = exp2(-r2.z);
+  r2.x = min(1, r2.x);
+  r3.w = max(cb4[86].w, r2.x);
+  r0.w = cmp(cb4[87].w < r0.w);
+  r0.w = r0.w ? r4.y : 0;
+  r2.xyzw = r0.wwww ? float4(0,0,0,1) : r3.xyzw;
+  r0.w = 1 + -r2.w;
+  o4.xyz = r0.xyz * r0.www + r2.xyz;
+  o0.w = 0;
+  o2.xy = v4.xy;
+  o2.zw = float2(0,0);
+  o4.w = r2.w;
+  o5.xyzw = r1.xyzw;
+  return;
+}
