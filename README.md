@@ -10,3 +10,6 @@ If you want to run the game with the modmenu, download https://github.com/marcoc
 
 
 Or just run fnaf from steam/oculus/HTC store.
+
+
+For 3Dmigoto problems (game crashes) , Please seek support from the 3Dmigoto ufficial Discord : https://discord.gg/hnZ92Ay
