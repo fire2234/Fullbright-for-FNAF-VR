@@ -66,7 +66,7 @@ dcl_input_ps constant v3.x
 dcl_input_ps linear v4.xyzw
 dcl_input_ps_siv linear noperspective v5.xyzw, position
 dcl_output o0.xyzw
-dcl_temps 28
+dcl_temps 29
 and r0.x, v3.x, l(1)
 if_z r0.x
   mov r1.x, cb1[4].x
@@ -196,7 +196,8 @@ sample_l_indexable(texture2d)(float,float,float,float) r12.xyzw, r10.xyxx, t13.x
 sample_l_indexable(texture2d)(float,float,float,float) r14.xyzw, r10.xyxx, t14.xyzw, s2, l(0.000000)
 sample_l_indexable(texture2d)(float,float,float,float) r15.xyzw, r10.xyxx, t15.xyzw, s2, l(0.000000)
 
-mov r28.xyz, r8.yzwy
+mov r28.xyz,  r7.xyzx
+
 
 
 mad r14.xyz, r14.xyzx, l(2.000000, 2.000000, 2.000000, 0.000000), l(-1.00392163, -1.00392163, -1.00392163, 0.000000)
