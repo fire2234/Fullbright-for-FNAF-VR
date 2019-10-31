@@ -220,6 +220,7 @@ sample_indexable(texture2d)(float,float,float,float) r14.xyzw, r0.yzyy, t14.xyzw
 sample_indexable(texture2d)(float,float,float,float) r15.xyzw, r11.zwzz, t14.xyzw, s3
 mov r28.xyz, r7.xyzx
 
+
 mad r0.y, r15.w, l(0.00392156886), r14.w
 add r0.y, r0.y, l(-0.00196078443)
 mad r0.y, r0.y, cb5[18].w, cb5[20].w
@@ -852,7 +853,7 @@ mad r0.xyz, r13.xyzx, r7.xyzx, r0.xyzx
 add r0.xyz, r2.yzwy, r0.xyzx
 mad o0.xyz, r0.xyzx, r2.xxxx, r1.xyzx
 mov o0.w, l(0)
-add o0.xyz, r28.xyzw, r2.yzwy
+add o0.xyz, r28.xyzw, r0.yzwy
 
 ret
 // Approximately 0 instruction slots used
