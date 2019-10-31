@@ -202,7 +202,7 @@ mad r10.xy, r11.zwzz, r10.xyxx, r10.wzww
 sample_l_indexable(texture2d)(float,float,float,float) r12.xyzw, r10.xyxx, t20.xyzw, s2, l(0.000000)
 sample_l_indexable(texture2d)(float,float,float,float) r14.xyzw, r10.xyxx, t21.xyzw, s2, l(0.000000)
 sample_l_indexable(texture2d)(float,float,float,float) r15.xyzw, r10.xyxx, t22.xyzw, s2, l(0.000000)
-mov r28.xyz, r7.yzwy
+mov r28.xyz, r8.yzwy
 
 
 
