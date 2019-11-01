@@ -13,3 +13,8 @@ Or just run fnaf from steam/oculus/HTC store.
 
 
 For 3Dmigoto problems (game crashes) , Please seek support from the 3Dmigoto ufficial Discord : https://discord.gg/hnZ92Ay
+
+
+# TEMPORARILY END HERE UNTIL 
+
+- I Get a New VR HEADSET (mine is dead) 
