@@ -6,7 +6,7 @@ INSTRUCTIONS:
 
 Download everything here, put the contents in one folder, run 3Dmigoto.exe as admin.
 
-If you want to run the game with the modmenu, download https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu/releases/
+If you want to run the game with the modmenu, download https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu
 
 
 Or just run fnaf from steam/oculus/HTC store.
@@ -15,7 +15,6 @@ Or just run fnaf from steam/oculus/HTC store.
 For 3Dmigoto problems (game crashes) , Please seek support from the 3Dmigoto ufficial Discord : https://discord.gg/hnZ92Ay
 
 
-# TEMPORARILY PAUSES UNTIL I GET A NEW VR HEADSET : 
 
 Please donate:
 https://www.patreon.com/marcocorriero
