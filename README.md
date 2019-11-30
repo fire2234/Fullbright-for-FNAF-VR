@@ -2,19 +2,19 @@
 Download this :
 # https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
 Set up as instructed on the website, then 
-when you reach the point of marking the  " Input.ini " as readonly
+when you reach the point of marking the  " Input.ini " set the desired keybind before you set it as readonly
 edit the file called " Engine.ini "
 paste this
 
-# [/Script/Engine.RendererSettings]
-# r.ForceDebugViewModes=1
+ [/Script/Engine.RendererSettings]
+ r.ForceDebugViewModes=1
 
-And save, then run the game ( no need to set Engine.ini  as readonly )
+Save and run the game ( no need to set Engine.ini  as readonly )
 
-After you unlocked the console, it should show up  after you press the keybind you set with the instruction given in the unlocker.
-it should show the console, type this command
+Start the unlocker after you opened the game, it will do it's thing, and then you should see another window pop out, that will confirm the unlocker has done its's job, press the keybind allocated to make the console show up, then type this command :
 
 # viewmode unlit
+
 This makes the whole game visible, same effects as 3Dmigoto, but this affects all the missing textures in 3DMigoto shader patches, and they show up precisely! 
 
 To remove fullbright, just type
@@ -22,7 +22,6 @@ To remove fullbright, just type
 # viewmode lit
 
 This will restore the game view as normal.
-
 
 
 
