@@ -46,5 +46,5 @@ For 3Dmigoto problems (game crashes) , Please seek support from the 3Dmigoto uff
 
 
 
-Please donate:
+Please donate for more upcoming mods:
 https://www.patreon.com/marcocorriero
