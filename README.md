@@ -2,12 +2,12 @@
 Download this :
 # https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
 Set up as instructed on the website, then 
-when you reach the point of marking the  " Input.ini " set the desired keybind before you set it as readonly
-edit the file called " Engine.ini "
+when you reach the point of marking the  `" Input.ini "` set the desired keybind before you set it as readonly
+edit the file called `" Engine.ini "`
 paste this
 
- [/Script/Engine.RendererSettings]
- r.ForceDebugViewModes=1
+ `[/Script/Engine.RendererSettings]`
+ `r.ForceDebugViewModes=1`
 
 Save and run the game ( no need to set Engine.ini  as readonly )
 
@@ -28,7 +28,7 @@ This will restore the game view as normal.
 
 # Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
 # Fullbright-for-FNAF-VR
-This Mod provides Fullbright using 3DMigoto
+This Mod provides Fullbright using 3DMigoto (Development stopped)
 
 
 INSTRUCTIONS: 
