@@ -25,7 +25,9 @@ This will restore the game view as normal.
 
 
 
-# STOPPED DEVELOPING SINCE I FOUND A WAY BETTER ALTERNATIVE!
+
+
+# Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
 # Fullbright-for-FNAF-VR
 This Mod provides Fullbright using 3DMigoto
 
