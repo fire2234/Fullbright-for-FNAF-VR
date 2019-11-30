@@ -6,8 +6,8 @@ when you reach the point of marking the  `" Input.ini "` set the desired keybind
 edit the file called `" Engine.ini "`
 paste this
 
- `[/Script/Engine.RendererSettings]`
- `r.ForceDebugViewModes=1`
+ >[/Script/Engine.RendererSettings]                                                              
+ >r.ForceDebugViewModes=1
 
 Save and run the game ( no need to set Engine.ini  as readonly )
 
