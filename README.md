@@ -2,9 +2,8 @@
 Download this :
 # https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
 Set up as instructed on the website, then 
-when you reach the point of marking the  `" Input.ini "` set the desired keybind before you set it as readonly
-edit the file called `" Engine.ini "`
-paste this
+when you reach the point of marking the  `" Input.ini "` set the desired keybind before you set it as readonly then edit the file called `" Engine.ini "`
+paste this at the end .
 
  >[/Script/Engine.RendererSettings]                                                              
  >r.ForceDebugViewModes=1
