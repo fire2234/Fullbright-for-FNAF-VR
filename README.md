@@ -1,3 +1,6 @@
+# Fullbright-for-FNAF-VR
+
+# INSTRUCTIONS:
 # TUTORIAL FOR ALTERNATIVE FULLBRIGHT ( VANILLA FULLBRIGHT) :
 Download this :
 # https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
@@ -6,8 +9,8 @@ Set up as instructed on the website, then
 when you reach the point of marking the  `" Input.ini "` set the desired keybind before you set it as readonly then edit the file called `" Engine.ini "`
 paste this at the end .
 
- >[/Script/Engine.RendererSettings]                                                              
- >r.ForceDebugViewModes=1
+    [/Script/Engine.RendererSettings]                                                              
+    r.ForceDebugViewModes=1
 
 Save and run the game ( no need to set Engine.ini  as readonly )
 
@@ -23,15 +26,9 @@ To remove fullbright, just type
 
 This will restore the game view as normal.
 
-
-
-
-# Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
-# Fullbright-for-FNAF-VR
 This Mod provides Fullbright using Unreal Engine Console .
 
 
-INSTRUCTIONS: 
 
 Download everything here, put the contents in one folder, run 3Dmigoto.exe as admin.
 # FOR MOD MENU (CURRENTLY BROKEN) : 
@@ -39,3 +36,5 @@ https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu
 
 
 https://www.patreon.com/marcocorriero
+
+# Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
