@@ -18,7 +18,7 @@ Start the unlocker after you opened the game, it will do it's thing, and then yo
 
 # viewmode unlit
 
-This makes the whole game visible, same effects as 3Dmigoto, but this affects all the missing textures in 3DMigoto shader patches, and they show up precisely! 
+This makes the whole game visible, same effects as 3Dmigoto Old Fullbright., but this affects all the missing textures in 3DMigoto shader patches, and they show up precisely! 
 
 To remove fullbright, just type
 
@@ -28,9 +28,6 @@ This will restore the game view as normal.
 
 This Mod provides Fullbright using Unreal Engine Console .
 
-
-
-Download everything here, put the contents in one folder, run 3Dmigoto.exe as admin.
 # FOR MOD MENU (CURRENTLY BROKEN) : 
 https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu
 
