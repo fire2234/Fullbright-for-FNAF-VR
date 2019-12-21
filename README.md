@@ -28,22 +28,14 @@ This will restore the game view as normal.
 
 # Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
 # Fullbright-for-FNAF-VR
-This Mod provides Fullbright using 3DMigoto (Development stopped)
+This Mod provides Fullbright using Unreal Engine Console .
 
 
 INSTRUCTIONS: 
 
 Download everything here, put the contents in one folder, run 3Dmigoto.exe as admin.
-# FOR MOD MENU : 
+# FOR MOD MENU (CURRENTLY BROKEN) : 
 https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu
 
 
-Or just run fnaf from steam/oculus/HTC store.
-
-
-For 3Dmigoto problems (game crashes) , Please seek support from the 3Dmigoto ufficial Discord : https://discord.gg/hnZ92Ay
-
-
-
-Please donate for more upcoming mods:
 https://www.patreon.com/marcocorriero
