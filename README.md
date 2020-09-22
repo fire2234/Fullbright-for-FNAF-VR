@@ -2,8 +2,10 @@
 
 # INSTRUCTIONS:
 # TUTORIAL FOR ALTERNATIVE FULLBRIGHT ( VANILLA FULLBRIGHT) :
-Download this :
-# https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
+
+# Download The unlocker. :
+# https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm#downloading-the-uuu
+
 go in this folder : %localappdata%\freddys\Saved\Config\WindowsNoEditor\
 Edit the file called `" Engine.ini "`
 paste this at the end .
