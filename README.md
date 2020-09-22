@@ -5,8 +5,7 @@
 Download this :
 # https://framedsc.github.io/GeneralGuides/universal_ue4_consoleunlocker.htm
 go in this folder : %localappdata%\freddys\Saved\Config\WindowsNoEditor\
-Set up as instructed on the website, then 
-edit the file called `" Engine.ini "`
+Edit the file called `" Engine.ini "`
 paste this at the end .
 
     [/Script/Engine.RendererSettings]                                                              
@@ -14,7 +13,11 @@ paste this at the end .
 
 Save and run the game ( no need to set Engine.ini  as readonly )
 
-Start the unlocker after you opened the game, it will do it's thing, and then you should see another window pop out, that will confirm the unlocker has done its's job, press the keybind allocated to make the console show up, then type this command :
+Start the unlocker after you opened the game, it will do it's thing, and then you should see another window pop out, that will confirm the unlocker has done its's job, press the keybind allocated to make the console show up.
+
+# IF CONSOLE DOESNT SHOW UP, CHANGE KEYBINDS IN THE UNLOCKER.
+
+type this command :
 
 # viewmode unlit
 
