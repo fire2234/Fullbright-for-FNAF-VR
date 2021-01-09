@@ -34,8 +34,7 @@ This will restore the game view as normal.
 This Mod provides Fullbright using Unreal Engine Console .
 
 # FOR MOD MENU (CURRENTLY BROKEN) : 
-https://github.com/marcocorriero/Fnaf-VR-HW-Mod-menu
-
+https://github.com/xAstroBoy/Fnaf-VR-HW-Mod-menu
 
 https://www.patreon.com/marcocorriero
 
