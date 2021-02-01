@@ -36,6 +36,4 @@ This Mod provides Fullbright using Unreal Engine Console .
 # FOR MOD MENU (CURRENTLY BROKEN) : 
 https://github.com/xAstroBoy/Fnaf-VR-HW-Mod-menu
 
-https://www.patreon.com/marcocorriero
-
 # Development completely stopped, this will be the end of 3Dmigoto fullbright for FNAF HW, follow the method above to access the vanilla fullbright.
